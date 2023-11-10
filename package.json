@@ -1,6 +1,6 @@
 {
   "name": "universal-profanity-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Full list of bad words english, hindi",
   "main": "index.js",
   "scripts": {
