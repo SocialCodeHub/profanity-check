@@ -1,8 +1,8 @@
-import { readFile } from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const { readFile } = require('fs/promises');
+const path = require('path');
+const { fileURLToPath } = require('url');
 
-export class ProfanityCheck {
+class ProfanityCheck {
   constructor(config) {
     this.language = config && config.language ? config.language : 'all';
     this.terms = [];
@@ -36,8 +36,8 @@ export class ProfanityCheck {
   }
 
   async getLanguageFile(language) {
-    const currentFilePath = fileURLToPath(import.meta.url);
-    const dataFolderPath = path.join(path.dirname(currentFilePath), 'data');
+    // const currentFilePath = fileURLToPath(import.meta.url);
+    const dataFolderPath = path.join('./data');
     const languageFilePath = path.join(dataFolderPath, `${language}.txt`);
     const doesFileExists = await this.doesFileExists(languageFilePath);
 
@@ -84,3 +84,5 @@ export class ProfanityCheck {
     return false;
   }
 }
+
+module.exports = ProfanityCheck

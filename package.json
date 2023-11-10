@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Full list of bad words english, hindi",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "format": "npx prettier . --write"
   },

@@ -1,4 +1,4 @@
-import { ProfanityCheck } from './index.js';
+const ProfanityCheck = require('./index.js');
 
 const profanity = new ProfanityCheck();
 const sentence = 'asshole';
