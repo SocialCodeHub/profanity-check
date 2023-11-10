@@ -36,8 +36,7 @@ class ProfanityCheck {
   }
 
   async getLanguageFile(language) {
-    // const currentFilePath = fileURLToPath(import.meta.url);
-    const dataFolderPath = path.join('./data');
+    const dataFolderPath = `${__dirname}/data`
     const languageFilePath = path.join(dataFolderPath, `${language}.txt`);
     const doesFileExists = await this.doesFileExists(languageFilePath);
 
