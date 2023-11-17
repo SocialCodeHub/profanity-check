@@ -1,14 +1,28 @@
 {
   "name": "universal-profanity-checker",
   "version": "1.0.2",
-  "description": "Full list of bad words english, hindi",
+  "description": "A lightweight profanity checking library for Node.js and React/React Native",
+  "keywords": [
+    "profanity",
+    "bad words",
+    "filtering",
+    "Node.js",
+    "React",
+    "React Native"
+  ],
   "main": "index.js",
+  "module": "index.js",
+  "type": "module",
   "scripts": {
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "build": "babel --ignore node_modules . -d lib",
+    "prepublishOnly": "npm run build"
   },
   "author": "Ashwin",
-  "license": "ISC",
-  "devDependencies": {
-    "prettier": "3.0.0"
-  }
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^3.0.3",
+    "path": "^0.6.9"
+  },
+  "devDependencies": {}
 }
