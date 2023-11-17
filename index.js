@@ -1,5 +1,6 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+const { readFile } = require('fs/promises');
+const path = require('path');
+const { fileURLToPath } = require('url');
 
 class ProfanityCheck {
   constructor(config) {
@@ -35,7 +36,7 @@ class ProfanityCheck {
   }
 
   async getLanguageFile(language) {
-    const dataFolderPath = path.join(process.cwd(), 'data'); // Use process.cwd() instead of __dirname
+    const dataFolderPath = `${__dirname}/data`
     const languageFilePath = path.join(dataFolderPath, `${language}.txt`);
     const doesFileExists = await this.doesFileExists(languageFilePath);
 
@@ -48,7 +49,7 @@ class ProfanityCheck {
 
   async doesFileExists(localFilePath) {
     try {
-      await fs.access(localFilePath);
+      await readFile(localFilePath);
       return true;
     } catch (err) {
       return false;
@@ -57,7 +58,7 @@ class ProfanityCheck {
 
   async readFileAndSplit(localFilePath) {
     try {
-      const fileContent = await fs.readFile(localFilePath, 'utf8');
+      const fileContent = await readFile(localFilePath, 'utf8');
       return fileContent.split('\n');
     } catch (err) {
       return [];
@@ -83,4 +84,4 @@ class ProfanityCheck {
   }
 }
 
-export default ProfanityCheck;
+module.exports = ProfanityCheck
